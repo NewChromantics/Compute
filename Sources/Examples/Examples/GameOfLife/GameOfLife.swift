@@ -1,4 +1,3 @@
-#if os(macOS)
 import AVFoundation
 import Compute
 import Foundation
@@ -56,14 +55,18 @@ enum GameOfLife: Demo {
         var pipeline = try compute.makePipeline(function: library.gameOfLife_float4, constants: ["wrap": .bool(true)])
 
         // Set up video writer
+		#if os(macOS)
         let url = FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent("Desktop/GameOfLife.mov")
-        let movieWriter = try TextureToVideoWriter(outputURL: url, size: CGSize(width: width, height: height))
-        movieWriter.start()
+		let movieWriter = try TextureToVideoWriter(outputURL: url, size: CGSize(width: width, height: height))
+		#else
+		let movieWriter : TextureToVideoWriter? = nil
+		#endif
+        movieWriter?.start()
 
         logger?.log("Encoding")
 
         let time = CMTimeMakeWithSeconds(0, preferredTimescale: 600)
-        movieWriter.writeFrame(texture: textureA, at: time)
+        movieWriter?.writeFrame(texture: textureA, at: time)
 
         // Main simulation loop
         for frame in 0..<frames {
@@ -91,7 +94,7 @@ enum GameOfLife: Demo {
             // Write frame to video and measure time
             timeit {
                 let time = CMTimeMakeWithSeconds(Double(frame + 1) / Double(framesPerSecond), preferredTimescale: 600)
-                movieWriter.writeFrame(texture: outputTexture, at: time)
+                movieWriter?.writeFrame(texture: outputTexture, at: time)
             }
             display: { nanoseconds in
                 totalEncodeTime += nanoseconds
@@ -100,7 +103,7 @@ enum GameOfLife: Demo {
 
         logger?.log("Encoding")
         // Finish writing the video
-        try await movieWriter.finish()
+        try await movieWriter?.finish()
 
         // Print performance statistics
         print("Size: \(width)x\(height)")
@@ -109,4 +112,3 @@ enum GameOfLife: Demo {
         print("Encode time", Double(totalEncodeTime) / Double(1_000_000_000))
     }
 }
-#endif
