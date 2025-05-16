@@ -22,7 +22,7 @@ public struct BitonicSortDemo: Demo {
         let function = ShaderLibrary.bundle(.module).bitonicSort
         let numStages = log2(nextPowerOfTwo(numEntries))
 
-        let compute = try Compute(device: device)
+        let compute = try Computer(device: device)
 
         var pipeline = try compute.makePipeline(function: function, arguments: [
             "numEntries": .int(numEntries),

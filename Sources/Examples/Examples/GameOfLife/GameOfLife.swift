@@ -44,7 +44,7 @@ enum GameOfLife: Demo {
 
         logger?.log("Loading shaders")
         // Initialize Compute and ShaderLibrary
-        let compute = try Compute(device: device)
+        let compute = try Computer(device: device)
         let library = ShaderLibrary.bundle(.module, name: "debug")
 
         // Initialize timing variables

@@ -13,7 +13,7 @@ public enum ComputeError: Error {
 
 }
 
-public extension Compute {
+public extension Computer {
     /// Dispatches a compute operation using a more convenient syntax.
     ///
     /// This method wraps the `task` method, providing a simpler interface for dispatching compute operations.
@@ -32,7 +32,7 @@ public extension Compute {
     }
 }
 
-public extension Compute {
+public extension Computer {
     func run(pipeline: Pipeline, arguments: [String: Argument]? = nil, threads: MTLSize, threadsPerThreadgroup: MTLSize) throws {
         var pipeline = pipeline
         if let arguments {

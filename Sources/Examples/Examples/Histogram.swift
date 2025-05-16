@@ -39,7 +39,7 @@ enum Histogram: Demo {
         let input = try device.makeBuffer(bytesOf: values, options: [])
         let bucketCount = 32
         let buckets = device.makeBuffer(length: bucketCount * MemoryLayout<UInt32>.stride, options: [])!
-        let compute = try Compute(device: device, logger: Logger())
+        let compute = try Computer(device: device, logger: Logger())
         let library = ShaderLibrary.source(source, enableLogging: true)
         var histogram = try compute.makePipeline(function: library.histogram)
         histogram.arguments.input = .buffer(input)

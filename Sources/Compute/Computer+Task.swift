@@ -1,7 +1,7 @@
 import Metal
 import os
 
-public extension Compute {
+public extension Computer {
     /// Represents a compute task that can be executed on the GPU.
     ///
     /// A `Task` encapsulates a Metal command buffer and provides methods to execute compute operations.

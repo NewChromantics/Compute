@@ -50,7 +50,7 @@ struct RandomFill: Demo {
             throw ComputeError.resourceCreationFailure
         }
 
-        let compute = try Compute(device: device)
+        let compute = try Computer(device: device)
 
         let library = ShaderLibrary.source(source)
 

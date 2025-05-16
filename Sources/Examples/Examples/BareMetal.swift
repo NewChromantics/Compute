@@ -77,7 +77,7 @@ enum BareMetalVsCompute: Demo {
 
     static func compute(device: MTLDevice, buffer: MTLBuffer, value: UInt8) throws {
         // Set up.
-        let compute = try Compute(device: device)
+        let compute = try Computer(device: device)
 
         // Create shader library from source
         let library = ShaderLibrary.source(source)

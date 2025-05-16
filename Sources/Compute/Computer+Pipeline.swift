@@ -1,6 +1,6 @@
 import Metal
 
-public extension Compute {
+public extension Computer {
     /// Represents a compute pipeline, encapsulating all the information needed to execute a compute operation.
     ///
     /// A `Pipeline` includes the shader function, its arguments, and the associated compute pipeline state.

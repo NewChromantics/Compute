@@ -26,7 +26,7 @@ enum BufferFill: Demo {
         let device = MTLCreateSystemDefaultDevice()!
         let count = 2 ** 24
         let data = device.makeBuffer(length: count * MemoryLayout<UInt32>.stride, options: .storageModeShared)!
-        let compute = try Compute(device: device, logger: Logger())
+        let compute = try Computer(device: device, logger: Logger())
         let library = ShaderLibrary.source(source, enableLogging: true)
         var bufferFill = try compute.makePipeline(function: library.buffer_fill)
         bufferFill.arguments.data = .buffer(data)

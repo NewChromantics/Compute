@@ -52,7 +52,7 @@ enum MemcopyDemo: Demo {
 
         print("# Preparing")
         // Create a Compute object with the Metal device
-        let compute = try Compute(device: device)
+        let compute = try Computer(device: device)
         // Create a shader library from the source code
         let library = ShaderLibrary.source(source)
         // Create compute pipelines for each kernel function

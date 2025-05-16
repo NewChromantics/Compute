@@ -2,7 +2,7 @@ import Metal
 import simd
 import SwiftUI
 
-public extension Compute {
+public extension Computer {
     /// A structure that holds and manages arguments for a compute pipeline.
     ///
     /// This structure uses dynamic member lookup to provide a convenient way to access and set arguments.
@@ -46,7 +46,7 @@ public extension Compute {
 }
 
 
-public extension Compute.Argument {
+public extension Computer.Argument {
 
         /// Creates an integer argument.
         ///

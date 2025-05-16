@@ -23,7 +23,7 @@ enum MaxParallel: Demo {
 
     static func main() async throws {
         let device = MTLCreateSystemDefaultDevice()!
-        let compute = try Compute(device: device)
+        let compute = try Computer(device: device)
         let library = ShaderLibrary.source(source, enableLogging: true)
         let count = device.makeBuffer(length: MemoryLayout<UInt32>.size * 1, options: [])!
         let maximum = device.makeBuffer(length: MemoryLayout<UInt32>.size * 1, options: [])!

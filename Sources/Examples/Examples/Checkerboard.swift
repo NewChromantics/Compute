@@ -44,7 +44,7 @@ enum Checkerboard: Demo {
     static func main() async throws {
         let device = MTLCreateSystemDefaultDevice()!
         let logger = Logger()
-        let compute = try Compute(device: device, logger: logger)
+        let compute = try Computer(device: device, logger: logger)
         let library = ShaderLibrary.source(source)
 
         var checkerboard = try compute.makePipeline(function: library.checkerboard)

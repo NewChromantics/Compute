@@ -4,7 +4,7 @@ import os
 /// The main struct that encapsulates the Metal compute environment.
 ///
 /// This struct provides the core functionality for creating and executing compute tasks on the GPU.
-public struct Compute {
+public struct Computer {
     /// The Metal device used for compute operations.
     public let device: MTLDevice
 

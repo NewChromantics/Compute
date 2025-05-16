@@ -27,7 +27,7 @@ enum CounterDemo: Demo {
     static func main() async throws {
         let device = MTLCreateSystemDefaultDevice()!
         let logger = Logger()
-        let compute = try Compute(device: device, logger: logger)
+        let compute = try Computer(device: device, logger: logger)
         let library = ShaderLibrary.source(source, enableLogging: true)
         let numberOfCounters = 100240
         let counters = device.makeBuffer(length: MemoryLayout<UInt32>.size * numberOfCounters, options: [])!

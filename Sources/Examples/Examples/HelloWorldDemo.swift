@@ -18,7 +18,7 @@ enum HelloWorldDemo: Demo {
         let device = MTLCreateSystemDefaultDevice()!
         let logger = Logger()
         logger.log("Hello world (from Swift!)")
-        let compute = try Compute(device: device, logger: logger)
+        let compute = try Computer(device: device, logger: logger)
         let library = ShaderLibrary.source(source, enableLogging: true)
         let helloWorld = try compute.makePipeline(function: library.hello_world)
         try compute.run(pipeline: helloWorld, width: 1)

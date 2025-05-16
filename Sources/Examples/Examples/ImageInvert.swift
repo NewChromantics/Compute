@@ -26,7 +26,7 @@ enum ImageInvert: Demo {
     static func main() async throws {
         let device = MTLCreateSystemDefaultDevice()!
         let logger = Logger()
-        let compute = try Compute(device: device, logger: logger)
+        let compute = try Computer(device: device, logger: logger)
         let library = ShaderLibrary.source(source)
         var invertImage = try compute.makePipeline(function: library.invertImage, constants: ["isLinear": .bool(true)])
 

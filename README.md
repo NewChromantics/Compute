@@ -33,7 +33,7 @@ kernel void add(device int* inA [[buffer(0)]],
 
 // Set up the compute environment
 let device = MTLCreateSystemDefaultDevice()!
-let compute = try Compute(device: device)
+let compute = try Computer(device: device)
 
 // Create input data
 let count = 1000

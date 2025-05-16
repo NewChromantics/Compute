@@ -52,7 +52,7 @@ struct SIMDReduce: Demo {
             values.reduce(0, +)
         }
         // Create a "Compute" object
-        let compute = try Compute(device: device, logger: Logger())
+        let compute = try Computer(device: device, logger: Logger())
         // Create a shader library from our source string
         let library = ShaderLibrary.source(source, enableLogging: true)
         // Create a compute pass from our function

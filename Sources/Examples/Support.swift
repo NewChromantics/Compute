@@ -282,7 +282,7 @@ extension Array {
     }
 }
 
-extension Compute.Argument {
+extension Computer.Argument {
     static func buffer<T>(_ data: TypedMTLBuffer<T>) -> Self {
         data.withUnsafeMTLBuffer { buffer in
             return .buffer(buffer!)

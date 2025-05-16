@@ -9,7 +9,7 @@ struct ComputeTests {
     init() throws {
         let device = MTLCreateSystemDefaultDevice()!
         self.device = device
-        self.compute = try Compute(device: device)
+        self.compute = try Computer(device: device)
     }
 
     @Test

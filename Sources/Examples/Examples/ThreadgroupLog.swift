@@ -27,7 +27,7 @@ enum ThreadgroupLogging: Demo {
 
     static func main() async throws {
         let device = MTLCreateSystemDefaultDevice()!
-        let compute = try Compute(device: device, logger: Logger())
+        let compute = try Computer(device: device, logger: Logger())
         let library = ShaderLibrary.source(source, enableLogging: true)
         let pipeline = try compute.makePipeline(function: library.threadgroup_test)
         try compute.run(pipeline: pipeline, threadgroupsPerGrid: MTLSize(width: 3), threadsPerThreadgroup: MTLSize(width: 2))

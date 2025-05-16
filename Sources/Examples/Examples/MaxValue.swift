@@ -31,7 +31,7 @@ enum MaxValue: Demo {
         let device = MTLCreateSystemDefaultDevice()!
         let input = device.makeBuffer(bytes: values, length: MemoryLayout<Int32>.stride * values.count, options: [])!
         let output = device.makeBuffer(length: MemoryLayout<Int32>.size)!
-        let compute = try Compute(device: device)
+        let compute = try Computer(device: device)
         let library = ShaderLibrary.source(source)
         var maxValue = try compute.makePipeline(function: library.maxValue)
         maxValue.arguments.input = .buffer(input)
@@ -65,7 +65,7 @@ enum MaxValue: Demo {
         let device = MTLCreateSystemDefaultDevice()!
         let input = device.makeBuffer(bytes: values, length: MemoryLayout<Int32>.stride * values.count, options: [])!
         let output = device.makeBuffer(length: MemoryLayout<Int32>.size)!
-        let compute = try Compute(device: device)
+        let compute = try Computer(device: device)
         let library = ShaderLibrary.source(source)
         var maxValue = try compute.makePipeline(function: library.maxValue)
         maxValue.arguments.input = .buffer(input)
@@ -123,7 +123,7 @@ enum MaxValue: Demo {
         """#
         let device = MTLCreateSystemDefaultDevice()!
         let input = device.makeBuffer(bytes: values, length: MemoryLayout<Int32>.stride * values.count, options: [])!
-        let compute = try Compute(device: device)
+        let compute = try Computer(device: device)
         let library = ShaderLibrary.source(source)
         var pipeline = try compute.makePipeline(function: library.maxValue)
         pipeline.arguments.input = .buffer(input)
